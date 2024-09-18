@@ -17,9 +17,8 @@ services = new ServiceCollection();
 schedulerFactory = new StdSchedulerFactory();
 
 _scheduler = await schedulerFactory.GetScheduler();
-//Register service
+//Register services
 services.AddTransient<SimpleJob>();
-services.AddSingleton(provider => _scheduler);
 services.AddSingleton<IEmailService, EmailService>();
 
 provider = services.BuildServiceProvider();
