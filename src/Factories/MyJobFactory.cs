@@ -21,11 +21,7 @@ public class MyJobFactory : SimpleJobFactory
         {
 
             // this will inject dependencies that the job requires
-            var ret = (IJob)_provider.GetService(bundle.JobDetail.JobType);
-            //var ret = (IJob)_provider.GetService(typeof(SimpleJob));
-            //var ret = (IJob)(_provider.GetService(typeof(SimpleJob)) ?? ActivatorUtilities.CreateInstance(_provider, typeof(SimpleJob)));
-
-            return ret;
+            return (IJob)_provider.GetService(bundle.JobDetail.JobType);
         }
         catch (Exception e)
         {
